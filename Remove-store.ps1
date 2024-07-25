@@ -1,0 +1,13 @@
+﻿Get-AppxPackage -Allusers Microsoft.WindowsStore | Remove-AppxPackage
+Get-AppxPackage -Allusers Microsoft.StorePurchaseApp | Remove-AppxPackage
+Get-AppxPackage -Allusers Microsoft.XboxApp | Remove-AppxPackage
+Get-AppxPackage -Allusers Microsoft.XboxIdentityProvider | Remove-AppxPackage
+Get-AppxPackage -Allusers Microsoft.VP9VideoExtensions | Remove-AppxPackage
+Get-AppxPackage -Allusers Microsoft.DesktopAppInstaller | Remove-AppxPackage
+Get-AppxPackage -Allusers Microsoft.NET.Native.Framework.1.7 | Remove-AppxPackage
+Get-AppxPackage -Allusers Microsoft.NET.Native.Runtime.1.7 | Remove-AppxPackage
+Get-AppxPackage -Allusers Microsoft.NET.Native.Framework.1.6 | Remove-AppxPackage
+Get-AppxPackage -Allusers Microsoft.NET.Native.Runtime.1.6 | Remove-AppxPackage
+Get-AppxPackage -Allusers Microsoft.VCLibs.140.00.UWPDesktop | Remove-AppxPackage
+Get-AppxPackage -Allusers Microsoft.VCLibs.140.00 | Remove-AppxPackage
+Get-AppxPackage -Allusers *xboxapp* | Remove-AppxPackage
