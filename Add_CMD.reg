@@ -1,7 +1,7 @@
 Windows Registry Editor Version 5.00
 
 [HKEY_CLASSES_ROOT\Directory\shell\OpenCmdHereAsAdmin]
-@="Open command window here as administrator"
+@="Open in CMD Admin"
 "Extended"=-
 "HasLUAShield"=""
 
@@ -21,7 +21,7 @@ Windows Registry Editor Version 5.00
 
 
 [HKEY_CLASSES_ROOT\Drive\shell\OpenCmdHereAsAdmin]
-@="Open command window here as administrator"
+@="Open in CMD Admin"
 "Extended"=-
 "HasLUAShield"=""
 
