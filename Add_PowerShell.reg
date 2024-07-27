@@ -1,0 +1,35 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\PowerShellAsAdmin]
+@="Open in PowerShell Admin"
+"Extended"=-
+"HasLUAShield"=""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\PowerShellAsAdmin\command]
+@="cmd /c reg add hkcu\\software\\_dir /d \"%v\" /f & start powershell -WindowS H -noP -c Start-Process -v RunAs powershell.exe '-noL -noE -c cd -literalP (gp hkcu:\\software\\_dir).\\\"\\\"\\\"(default)\\\"\\\"\\\"; ri hkcu:\\software\\_dir'"
+
+
+[HKEY_CLASSES_ROOT\Directory\shell\PowerShellAsAdmin]
+@="Open in PowerShell Admin"
+"Extended"=-
+"HasLUAShield"=""
+
+[HKEY_CLASSES_ROOT\Directory\shell\PowerShellAsAdmin\command]
+@="cmd /c reg add hkcu\\software\\_dir /d \"%v\" /f & start powershell -WindowS H -noP -c Start-Process -v RunAs powershell.exe '-noL -noE -c cd -literalP (gp hkcu:\\software\\_dir).\\\"\\\"\\\"(default)\\\"\\\"\\\"; ri hkcu:\\software\\_dir'"
+
+
+[HKEY_CLASSES_ROOT\Drive\shell\PowerShellAsAdmin]
+@="Open in PowerShell Admin"
+"Extended"=-
+"HasLUAShield"=""
+
+[HKEY_CLASSES_ROOT\Drive\shell\PowerShellAsAdmin\command]
+@="cmd /c reg add hkcu\\software\\_dir /d \"%v\" /f & start powershell -WindowS H -noP -c Start-Process -v RunAs powershell.exe '-noL -noE -c cd -literalP (gp hkcu:\\software\\_dir).\\\"\\\"\\\"(default)\\\"\\\"\\\"; ri hkcu:\\software\\_dir'"
+
+
+[-HKEY_CLASSES_ROOT\LibraryFolder\Background\shell\PowerShellAsAdmin]
+
+
+; To allow mapped drives to be available in elevated PowerShell
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"EnableLinkedConnections"=dword:00000001
