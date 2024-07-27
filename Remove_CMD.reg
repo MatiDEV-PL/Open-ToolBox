@@ -1,0 +1,13 @@
+Windows Registry Editor Version 5.00
+
+
+[-HKEY_CLASSES_ROOT\Directory\shell\OpenCmdHereAsAdmin]
+
+[-HKEY_CLASSES_ROOT\Directory\Background\shell\OpenCmdHereAsAdmin]
+
+[-HKEY_CLASSES_ROOT\Drive\shell\OpenCmdHereAsAdmin]
+
+[-HKEY_CLASSES_ROOT\LibraryFolder\background\shell\OpenCmdHereAsAdmin]
+
+[-HKEY_CLASSES_ROOT\LibraryFolder\background\shell\OpenCmdHereAsAdmin\command]
+
