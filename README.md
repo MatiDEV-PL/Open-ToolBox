@@ -1,7 +1,14 @@
-Open ToolBox is the program that i use in my other procject Clean Windows. It includes some basic programs and settings.
+## Overview:
+Open ToolBox is the program I utilize for my second project, Clean Windows. It comes with a few essential programs and settings.
 
-Direct link to .bat version [Link](https://git-link.vercel.app/api/download?url=https%3A%2F%2Fgithub.com%2FMatiDEV-PL%2FOpen-ToolBox%2Fblob%2Fmain%2FOpen-ToolBox.bat)
+## Supported platforms:
+- Windows 10  
+- Windows 11
 
-Direct link to .exe version [Link](https://github.com/MatiDEV-PL/Open-ToolBox/raw/main/Open-ToolBox.exe)
+## Download Links:
+Latest release .bat version [Link](https://git-link.vercel.app/api/download?url=https%3A%2F%2Fgithub.com%2FMatiDEV-PL%2FOpen-ToolBox%2Fblob%2Fmain%2FOpen-ToolBox.bat)
 
-<img src="https://github.com/MatiDEV-PL/Open-ToolBox/blob/main/Screenshot.png" width="1000">
+Latest release .exe version [Link](https://github.com/MatiDEV-PL/Open-ToolBox/raw/main/Open-ToolBox.exe)
+
+## Screenshot:
+<img src="https://github.com/MatiDEV-PL/Open-ToolBox/blob/main/Screenshot.png">
