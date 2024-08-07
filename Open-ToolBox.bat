@@ -70,34 +70,35 @@ echo ===========================================================================
 echo.
 echo [94mTWEAK ^| FIXED ^| CLEANER ^| OTHER                                Software[0m 
 echo [33m-------------------------------                                --------
-echo [94m[1] [37m^|[0m Action Center ^& Notification ^| Cortana ^| Printer         [94m[19] [37m^|[0m Microsoft Edge             
-echo [94m[2] [37m^|[0m Clear Event Viewer Logs                                  [94m[20] [37m^|[0m Brave
-echo [94m[3] [37m^|[0m Clear Cache Updates ^| Delivery Optimization              [94m[21] [37m^|[0m Firefox
-echo [94m[4] [37m^|[0m Microsoft Activation                                     [94m[22] [37m^|[0m Google Chrome
-echo [94m[5] [37m^|[0m Hibernation ^| Fastboot ^| Sleepmode ^| Sysmain             [94m[23] [37m^|[0m Opera
-echo [94m[6] [37m^|[0m Pagefile (virtual memory)                                [94m[24] [37m^|[0m DuckDuckGo
-echo [94m[7] [37m^|[0m Right click Take Ownership Menu                          [94m[25] [37m^|[0m Librewolf
-echo [94m[8] [37m^|[0m Stops Windows Updates until 2077                         [94m[26] [37m^|[0m 7-Zip 24.07
-echo [94m[9] [37m^|[0m Compact ^| LZX compression                                [94m[27] [37m^|[0m VLC        
+echo [94m[1]  [37m^|[0m Action Center ^& Notification ^| Cortana ^| Printer         [94m[20] [37m^|[0m Microsoft Edge             
+echo [94m[2]  [37m^|[0m Clear Event Viewer Logs                                  [94m[21] [37m^|[0m Brave
+echo [94m[3]  [37m^|[0m Clear Cache Updates ^| Delivery Optimization              [94m[22] [37m^|[0m Firefox
+echo [94m[4]  [37m^|[0m Microsoft Activation                                     [94m[23] [37m^|[0m Google Chrome
+echo [94m[5]  [37m^|[0m Hibernation ^| Fastboot ^| Sleepmode ^| Sysmain             [94m[24] [37m^|[0m Opera
+echo [94m[6]  [37m^|[0m Pagefile (virtual memory)                                [94m[25] [37m^|[0m DuckDuckGo
+echo [94m[7]  [37m^|[0m Right click Take Ownership Menu                          [94m[26] [37m^|[0m Librewolf
+echo [94m[8]  [37m^|[0m Stops Windows Updates until 2077                         [94m[27] [37m^|[0m 7-Zip 24.07
+echo [94m[9]  [37m^|[0m Compact ^| LZX compression                                [94m[28] [37m^|[0m VLC    
+echo [94m[10] [37m^|[0m Remove Windows Defender                                  [94m[29] [37m^|[0m Notepad++ 8.6.9   
 echo.
 echo [94mUWP APPX ^| OTHER                                               OTHER ^| ETC
 echo [33m----------------                                               -----------
-echo [94m[10] [37m^|[0m Microsoft Store                                         [94m[28][0m ^| Microsoft Disk Benchmark
-echo [94m[11][0m ^| Microsoft Xbox Game Bar                                 [94m[29][0m ^| Personalization
-echo [94m[12][0m ^| Microsoft .NET Framework                                [94m[30][0m ^| Game Client - Steam/GOG/Origin/Epic/Ubisoft/Battle
-echo [94m[13][0m ^| Microsoft OneDrive                                      
-echo [94m[14][0m ^| Microsoft Music                                         
-echo [94m[15][0m ^| Microsoft Movies ^& TV                                   
-echo [94m[16][0m ^| Options For Windows 11                                  
+echo [94m[11] [37m^|[0m Microsoft Store                                         [94m[30][0m ^| Microsoft Disk Benchmark
+echo [94m[12][0m ^| Microsoft Xbox Game Bar                                 [94m[31][0m ^| Personalization
+echo [94m[13][0m ^| Microsoft .NET Framework                                [94m[32][0m ^| Game Client - Steam/GOG/Origin/Epic/Ubisoft/Battle
+echo [94m[14][0m ^| Microsoft OneDrive                                      
+echo [94m[15][0m ^| Microsoft Music                                         
+echo [94m[16][0m ^| Microsoft Movies ^& TV                                   
+echo [94m[17][0m ^| Options For Windows 11                                  
 echo.
 echo [94mHighly recommended to install[0m
 echo [33m-----------------------------[0m
-echo [94m[17][0m ^| Visual C++ Redistributables AIO (system)
-echo [94m[18][0m ^| DirectX (system)
+echo [94m[18][0m ^| Visual C++ Redistributables AIO (system)
+echo [94m[19][0m ^| DirectX (system)
 echo.
-echo [94m[0] [37m^|[0m Exit[0m
+echo [94m[0]  [37m^|[0m Exit[0m
 echo.
-set /p choice=[0mEnter your choice (0-30):[0m
+set /p choice=[0mEnter your choice (0-32):[0m
 
 if "%choice%"=="1" goto actionandnoti
 if "%choice%"=="2" goto op2
@@ -108,27 +109,29 @@ if "%choice%"=="6" goto op6
 if "%choice%"=="7" goto op7
 if "%choice%"=="8" goto op8
 if "%choice%"=="9" goto op9
-if "%choice%"=="10" goto op10
-if "%choice%"=="11" goto op11
-if "%choice%"=="12" goto netframework
-if "%choice%"=="13" goto onedrive0
-if "%choice%"=="14" goto zunemusic
-if "%choice%"=="15" goto movie
-if "%choice%"=="16" goto opwin11
-if "%choice%"=="17" goto op16
-if "%choice%"=="18" goto op17
-if "%choice%"=="19" goto edge
-if "%choice%"=="20" goto brave
-if "%choice%"=="21" goto firefox
-if "%choice%"=="22" goto chrome
-if "%choice%"=="23" goto opera
-if "%choice%"=="24" goto duckduckgo
-if "%choice%"=="25" goto librewolf
-if "%choice%"=="26" goto 7zip
-if "%choice%"=="27" goto vlc
-if "%choice%"=="28" goto opdisk
-if "%choice%"=="29" goto pers
-if "%choice%"=="30" goto gameclient
+if "%choice%"=="10" goto defender
+if "%choice%"=="11" goto op10
+if "%choice%"=="12" goto op11
+if "%choice%"=="13" goto netframework
+if "%choice%"=="14" goto onedrive0
+if "%choice%"=="15" goto zunemusic
+if "%choice%"=="16" goto movie
+if "%choice%"=="17" goto opwin11
+if "%choice%"=="18" goto op16
+if "%choice%"=="19" goto op17
+if "%choice%"=="20" goto edge
+if "%choice%"=="21" goto brave
+if "%choice%"=="22" goto firefox
+if "%choice%"=="23" goto chrome
+if "%choice%"=="24" goto opera
+if "%choice%"=="25" goto duckduckgo
+if "%choice%"=="26" goto librewolf
+if "%choice%"=="27" goto 7zip
+if "%choice%"=="28" goto vlc
+if "%choice%"=="29" goto notepad
+if "%choice%"=="30" goto opdisk
+if "%choice%"=="31" goto pers
+if "%choice%"=="32" goto gameclient
 if "%choice%"=="forwindows11" goto forwindows11
 if "%choice%"=="0" exit
 
@@ -2264,16 +2267,18 @@ for /f "tokens=2*" %%a in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Win
 if "%var%"=="22000" goto winxboxappnope
 cls
 echo =====================================================================================================================
-echo Xbox App For Windows 10 20H2/21H1 or higher version.
+echo [32mXbox App For Windows 10 20H2/21H1 or higher version.[0m
 echo ---------------------------------------------------------------------------------------------------------------------
-echo (NOTE: Please install Microsoft Store before install Xbox App, To install Microsoft Store go to Option 10 > 1)
+echo [31m(NOTE: Please install Microsoft Store before install Xbox App, To install Microsoft Store go to Option 10 > 1)
 echo (NOTE: If Dependencies is missing goto Xbox App > Settings > General > Dependencies > Install)
 echo (NOTE: Some Game Xbox App Cannot be works on Administrator Account, please using Xbox App on non-Administrator User)
-echo (NOTE: To using Latest Xbox App OS Build 1904x.1055 or Higher OS Build is required)
+echo (NOTE: To using Latest Xbox App OS Build 1904x.1055 or Higher OS Build is required)[0m
 echo ---------------------------------------------------------------------------------------------------------------------
-echo [1] ^| Xbox App
-echo [0] ^| Back          
+echo [32m[1][0m ^| Install
 echo =====================================================================================================================
+echo.
+echo [32m[0][0m ^| Back          
+echo.
 
 timeout /t 1 >nul
 set /p op=Type option:
@@ -2361,10 +2366,10 @@ goto gameclient
 cls
 cd "%USERPROFILE%\Downloads"
 cls
-curl -L -o "Battle.net-Setup.exe" "https://blizz.ly/3hzFDqN" 
+curl -L -o "Battle-Setup.exe" "https://blizz.ly/3hzFDqN" 
 cls
 echo Installing... please wait..
-Battle.net-Setup.exe
+Battle-Setup.exe
 timeout /t 3 >nul
 cls
 goto gameclient
@@ -2472,6 +2477,80 @@ echo [32mInstalling VLC x86...[0m
 echo =====================================================================================================================
 start /wait "" "%downloadDir%\VLC-x86.exe" /S
 timeout /t 2 >nul
+cls
+goto menu
+
+:notepad
+cls
+@echo off
+echo  =====================================================================================================================
+echo  [32mInstalling Notepad++...[0m
+echo  =====================================================================================================================
+timeout /t 1 >nul
+if "%PROCESSOR_ARCHITECTURE%"=="AMD64" goto notepad64
+if "%PROCESSOR_ARCHITECTURE%"=="x86" goto notepad32
+
+:notepad64
+cls
+curl -L -o "%downloadDir%\npp-x64.exe" "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.9/npp.8.6.9.Installer.x64.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling Notepad++ x64...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\npp-x64.exe" /S
+timeout /t 2 >nul
+cls
+goto menu
+
+:notepad32
+cls
+curl -L -o "%downloadDir%\npp-x86.exe" "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.9/npp.8.6.9.Installer.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling Notepad++ x86...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\npp-x86.exe" /S
+timeout /t 2 >nul
+cls
+goto menu
+
+:defender
+cls
+echo =====================================================================================================================
+echo [32mWindows Defender Remover[0m
+echo ---------------------------------------------------------------------------------------------------------------------
+echo [32m[1][0m ^| [31mYes (Remove Windows Defender)[0m
+echo =====================================================================================================================
+echo.
+echo [32m[0][0m ^| Back          
+echo.
+timeout /t 1 >nul
+set /p op=Type option:
+if "%op%"=="1" goto defender1
+if "%op%"=="0" goto menu
+
+cls
+echo Wrong numbers please try again...
+timeout /t 2 >nul
+cls
+goto defender
+
+:defender1
+cls
+powershell -Command "Set-MpPreference -DisableRealtimeMonitoring $true; Add-MpPreference -ExclusionPath '%downloadDir%'" >nul 2>&1
+@echo off
+cls
+echo  =====================================================================================================================
+echo  [32mDownloading Windows Defender...[0m
+echo  =====================================================================================================================
+timeout /t 1 >nul
+cd "%downloadDir%"
+curl -L -o "DefenderRemover.exe" "https://github.com/ionuttbara/windows-defender-remover/releases/download/release_def_12_8/DefenderRemover.exe"
+cls
+powershell -Command "Add-MpPreference -ExclusionPath '%downloadDir%\DefenderRemover.exe'" >nul 2>&1
+start /wait "" "%downloadDir%\DefenderRemover.exe" /S
+powershell -Command "Remove-MpPreference -ExclusionPath '%downloadDir%\DefenderRemover.exe'" >nul 2>&1
+
 cls
 goto menu
 
