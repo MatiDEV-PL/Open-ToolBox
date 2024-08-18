@@ -2458,7 +2458,7 @@ if "%PROCESSOR_ARCHITECTURE%"=="x86" goto vlc32
 
 :vlc64
 cls
-curl -L -o "%downloadDir%\7z-x64.exe" "https://7-zip.org/a/7z2407-x64.exe"
+curl -L -o "%downloadDir%\VLC-x64.exe" "https://get.videolan.org/vlc/3.0.21/win64/vlc-3.0.21-win64.exe"
 cls
 echo =====================================================================================================================
 echo [32mInstalling VLC x64...[0m
