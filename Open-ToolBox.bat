@@ -70,16 +70,16 @@ echo ===========================================================================
 echo.
 echo [94mTWEAK ^| FIXED ^| CLEANER ^| OTHER                                Software[0m 
 echo [33m-------------------------------                                --------
-echo [94m[1]  [37m^|[0m Action Center ^& Notification ^| Cortana ^| Printer         [94m[20] [37m^|[0m Microsoft Edge             
-echo [94m[2]  [37m^|[0m Clear Event Viewer Logs                                  [94m[21] [37m^|[0m Brave
-echo [94m[3]  [37m^|[0m Clear Cache Updates ^| Delivery Optimization              [94m[22] [37m^|[0m Firefox
-echo [94m[4]  [37m^|[0m Microsoft Activation                                     [94m[23] [37m^|[0m Google Chrome
-echo [94m[5]  [37m^|[0m Hibernation ^| Fastboot ^| Sleepmode ^| Sysmain             [94m[24] [37m^|[0m Opera
-echo [94m[6]  [37m^|[0m Pagefile (virtual memory)                                [94m[25] [37m^|[0m DuckDuckGo
-echo [94m[7]  [37m^|[0m Right click Take Ownership Menu                          [94m[26] [37m^|[0m Librewolf
-echo [94m[8]  [37m^|[0m Stops Windows Updates until 2077                         [94m[27] [37m^|[0m 7-Zip 24.07
-echo [94m[9]  [37m^|[0m Compact ^| LZX compression                                [94m[28] [37m^|[0m VLC    
-echo [94m[10] [37m^|[0m Remove Windows Defender                                  [94m[29] [37m^|[0m Notepad++ 8.6.9   
+echo [94m[1]  [37m^|[0m Action Center ^& Notification ^| Cortana ^| Printer        [94m[20] [37m^|[0m Microsoft Edge             
+echo [94m[2]  [37m^|[0m Clear Event Viewer Logs                                 [94m[21] [37m^|[0m Brave
+echo [94m[3]  [37m^|[0m Clear Cache Updates ^| Delivery Optimization             [94m[22] [37m^|[0m Firefox
+echo [94m[4]  [37m^|[0m Microsoft Activation                                    [94m[23] [37m^|[0m Google Chrome
+echo [94m[5]  [37m^|[0m Hibernation ^| Fastboot ^| Sleepmode ^| Sysmain            [94m[24] [37m^|[0m Opera
+echo [94m[6]  [37m^|[0m Pagefile (virtual memory)                               [94m[25] [37m^|[0m DuckDuckGo
+echo [94m[7]  [37m^|[0m Right click Take Ownership Menu                         [94m[26] [37m^|[0m Librewolf
+echo [94m[8]  [37m^|[0m Stops Windows Updates until 2077                        [94m[27] [37m^|[0m 7-Zip 24.07
+echo [94m[9]  [37m^|[0m Compact ^| LZX compression                               [94m[28] [37m^|[0m VLC    
+echo [94m[10] [37m^|[0m Remove Windows Defender                                 [94m[29] [37m^|[0m Notepad++ 8.6.9   
 echo.
 echo [94mUWP APPX ^| OTHER                                               OTHER ^| ETC
 echo [33m----------------                                               -----------
