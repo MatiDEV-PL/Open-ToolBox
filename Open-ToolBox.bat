@@ -566,7 +566,7 @@ goto menu
 
 :op4
 cls
-set "scriptUrl=https://raw.githubusercontent.com/massgravel/Microsoft-Activation-Scripts/refs/heads/master/MAS/All-In-One-Version-KL/MAS_AIO.cmd"
+set "scriptUrl=https://raw.githubusercontent.com/massgravel/Microsoft-Activation-Scripts/master/MAS/All-In-One-Version/MAS_AIO-CRC32_31F7FD1E.cmd"
 set "scriptName=MAS_AIO-CRC32_31F7FD1E.cmd"
 
 :: Download the script
@@ -935,6 +935,7 @@ cls
 goto op10
 
 :store1
+cls
 set "downloadDir=%USERPROFILE%\Downloads"
 setlocal enableextensions
 if /i "%PROCESSOR_ARCHITECTURE%" equ "AMD64" (set "arch=x64") else (set "arch=x86")
@@ -2269,9 +2270,10 @@ cls
 echo =====================================================================================================================
 echo [32mXbox App For Windows 10 20H2/21H1 or higher version.[0m
 echo ---------------------------------------------------------------------------------------------------------------------
-echo [31mNOTE: Please install Microsoft Store before install Xbox App, To install Microsoft Store go to Option 11
-echo NOTE: Some Game Xbox App Cannot be works on Administrator Account, please using Xbox App on non-Administrator User 
-echo NOTE: To using Latest Xbox App OS Build 1904x.1055 or Higher OS Build is required[0m
+echo [31m(NOTE: Please install Microsoft Store before install Xbox App, To install Microsoft Store go to Option 10 > 1)
+echo (NOTE: If Dependencies is missing goto Xbox App > Settings > General > Dependencies > Install)
+echo (NOTE: Some Game Xbox App Cannot be works on Administrator Account, please using Xbox App on non-Administrator User)
+echo (NOTE: To using Latest Xbox App OS Build 1904x.1055 or Higher OS Build is required)[0m
 echo ---------------------------------------------------------------------------------------------------------------------
 echo [32m[1][0m ^| Install
 echo =====================================================================================================================
@@ -2413,10 +2415,10 @@ goto gameclient
 cls
 cd "%USERPROFILE%\Downloads"
 cls
-curl -L -o "Xbox_App.exe" "https://github.com/MatiDEV-PL/Open-ToolBox/raw/refs/heads/main/Xbox_App.exe"
+curl -L -o "XboxInstaller.exe" "https://assets.xbox.com/installer/20190628.8/anycpu/XboxInstaller.exe"
 cls
 echo Installing... please wait..
-start Xbox_App.exe
+start XboxInstaller.exe
 timeout /t 3 >nul
 cls
 goto gameclient
