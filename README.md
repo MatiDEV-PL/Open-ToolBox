@@ -1,11 +1,10 @@
-<p align="center">
-  <a href="https://github.com/MatiDEV-PL/Clean-Windows/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3"/>
-  </a>
-  <a href="https://www.codefactor.io/repository/github/matidev-pl/open-toolbox">
-    <img src="https://www.codefactor.io/repository/github/matidev-pl/open-toolbox/badge" alt="CodeFactor"/>
-  </a>
-</p>
+
+<div align="center">
+  
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![CodeFactor](https://www.codefactor.io/repository/github/matidev-pl/open-toolbox/badge)](https://www.codefactor.io/repository/github/matidev-pl/open-toolbox)  
+
+</div>
+
 
 
 
