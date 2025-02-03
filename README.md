@@ -18,3 +18,7 @@ Latest release version [Link](https://git-link.vercel.app/api/download?url=https
 
 ## Screenshot:
 <img src="https://github.com/MatiDEV-PL/Open-ToolBox/blob/main/Screenshot.png">
+
+## If you like my work consider giving tip
+
+[<img src="https://raw.githubusercontent.com/stefan-niedermann/paypal-donate-button/master/paypal-donate-button.png" width="200">]() <img src="https://github.com/MatiDEV-PL/Clean-Windows/blob/main/Donate.png" width="120">
