@@ -1,3 +1,14 @@
+<p align="center">
+  <a href="https://github.com/MatiDEV-PL/Clean-Windows/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3"/>
+  </a>
+  <a href="https://www.codefactor.io/repository/github/matidev-pl/open-toolbox">
+    <img src="https://www.codefactor.io/repository/github/matidev-pl/open-toolbox/badge" alt="CodeFactor"/>
+  </a>
+</p>
+
+
+
 ## Overview:
 Open ToolBox is the program I utilize for my second project, Clean Windows. It comes with a few essential programs and settings.
 
