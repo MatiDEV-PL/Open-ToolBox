@@ -1,5 +1,5 @@
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/MatiDEV-PL/Open-ToolBox/blob/main/LICENSE.txt) 
 [![CodeFactor](https://www.codefactor.io/repository/github/matidev-pl/open-toolbox/badge)](https://www.codefactor.io/repository/github/matidev-pl/open-toolbox)  
 
 
