@@ -77,7 +77,7 @@ echo [94m[4]  [37m^|[0m Microsoft Activation                                 
 echo [94m[5]  [37m^|[0m Hibernation ^| Fastboot ^| Sleepmode ^| Sysmain            [94m[24] [37m^|[0m Opera
 echo [94m[6]  [37m^|[0m Pagefile (virtual memory)                               [94m[25] [37m^|[0m DuckDuckGo
 echo [94m[7]  [37m^|[0m Right click Take Ownership Menu                         [94m[26] [37m^|[0m Librewolf
-echo [94m[8]  [37m^|[0m Stops Windows Updates until 2077                        [94m[27] [37m^|[0m 7-Zip 24.07
+echo [94m[8]  [37m^|[0m Stop Windows Updates or disables them entirely          [94m[27] [37m^|[0m 7-Zip 24.07
 echo [94m[9]  [37m^|[0m Compact ^| LZX compression                               [94m[28] [37m^|[0m VLC    
 echo [94m[10] [37m^|[0m Remove Windows Defender                                 [94m[29] [37m^|[0m Notepad++ 8.6.9   
 echo.
@@ -797,12 +797,14 @@ goto op7
 :op8
 cls
 echo [0m=====================================================================================================================
-echo [32mStops Windows Updates until 2077 (for version 1703 or higher version)[0m
+echo [32mStop Windows Updates until [dd.mm.yyyy] or disable it entirely (for version 1703 or higher version)[0m
 echo ---------------------------------------------------------------------------------------------------------------------
-echo [32m[1][0m ^| Pause Windows Update until 2077                     
+echo [32m[1][0m ^| Pause Windows Update until [dd.mm.yyyy]    
+echo [32m[2][0m ^| Disable Windows Updates
+echo [32m[3][0m ^| Enable Windows Updates                 
 echo ---------------------------------------------------------------------------------------------------------------------
 echo [31mNOTE: This only to stop Windows Update (Cumulative update), [33mDrivers[0m/[33mMS Store[0m/[33mDefenders[0m [31mUpdate will works as normal.[0m
-echo [31mNOTE: To Pause in Windows 11 ^> Click ^> Windows Update ^> Click Pause and press 1 to Pause until 2077.[0m
+echo [31mNOTE: To Pause in Windows 11 ^> Click ^> Windows Update ^> Click Pause and select for e.g. 1 week then select [1].[0m
 echo =====================================================================================================================
 echo.
 echo [32m[0][0m ^| Back to menu
@@ -811,38 +813,89 @@ echo.
 timeout /t 1 >nul
 set /p op=Type option:
 if "%op%"=="1" goto pauseupdate1
+if "%op%"=="2" goto disable1
+if "%op%"=="3" goto enable1
 if "%op%"=="0" goto menu
 
 cls
-echo [31mInvalid option. Please select a number between 0 and 1.[0m
+echo [31mInvalid option. Please select a number between 0 and 3.[0m
 timeout /t 2 >nul
 cls
 goto op8
 
 :pauseupdate1
 cls
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\Settings" /v "PausedFeatureStatus" /t REG_DWORD /d "1" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\Settings" /v "PausedQualityStatus" /t REG_DWORD /d "1" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX" /v "IsConvergedUpdateStackEnabled" /t REG_DWORD /d "1" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "ActiveHoursEnd" /t REG_DWORD /d "17" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "ActiveHoursStart" /t REG_DWORD /d "8" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "AllowAutoWindowsUpdateDownloadOverMeteredNetwork" /t REG_DWORD /d "0" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "DeferFeatureUpdatesPeriodInDays" /t REG_DWORD /d "0" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "DeferQualityUpdatesPeriodInDays" /t REG_DWORD /d "0" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "ExcludeWUDriversInQualityUpdate" /t REG_DWORD /d "0" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "FlightCommitted" /t REG_DWORD /d "0" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "LastToastAction" /t REG_DWORD /d "0" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "UxOption" /t REG_DWORD /d "0" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "InsiderProgramEnabled" /t REG_DWORD /d "0" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "PendingRebootStartTime" /t REG_SZ /d "2019-07-28T03:07:38Z" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "PauseFeatureUpdatesStartTime" /t REG_SZ /d "2019-07-28T10:38:56Z" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "PauseQualityUpdatesStartTime" /t REG_SZ /d "2019-07-28T10:38:56Z" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "PauseUpdatesExpiryTime" /t REG_SZ /d "2077-01-01T10:38:56Z" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "PauseFeatureUpdatesEndTime" /t REG_SZ /d "2077-01-01T10:38:56Z" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "PauseQualityUpdatesEndTime" /t REG_SZ /d "2077-01-01T10:38:56Z" /f
+echo Enter the day (01-31):
+set /p PAUSE_DAY=
 
+echo Enter the month (01-12):
+set /p PAUSE_MONTH=
+
+echo Enter the year you want to pause updates until (e.g. 2077):
+set /p PAUSE_YEAR=
+
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\Settings" /v "PausedFeatureStatus" /t REG_DWORD /d "1" /f >nul 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\Settings" /v "PausedQualityStatus" /t REG_DWORD /d "1" /f >nul 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX" /v "IsConvergedUpdateStackEnabled" /t REG_DWORD /d "1" /f >nul 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "ActiveHoursEnd" /t REG_DWORD /d "17" /f >nul 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "ActiveHoursStart" /t REG_DWORD /d "8" /f >nul 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "AllowAutoWindowsUpdateDownloadOverMeteredNetwork" /t REG_DWORD /d "0" /f >nul 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "DeferFeatureUpdatesPeriodInDays" /t REG_DWORD /d "0" /f >nul 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "DeferQualityUpdatesPeriodInDays" /t REG_DWORD /d "0" /f >nul 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "ExcludeWUDriversInQualityUpdate" /t REG_DWORD /d "0" /f >nul 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "FlightCommitted" /t REG_DWORD /d "0" /f >nul 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "LastToastAction" /t REG_DWORD /d "0" /f>nul 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "UxOption" /t REG_DWORD /d "0" /f >nul 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "InsiderProgramEnabled" /t REG_DWORD /d "0" /f >nul 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "PendingRebootStartTime" /t REG_SZ /d "2019-07-28T03:07:38Z" /f >nul 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "PauseFeatureUpdatesStartTime" /t REG_SZ /d "2019-07-28T10:38:56Z" /f >nul 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "PauseQualityUpdatesStartTime" /t REG_SZ /d "2019-07-28T10:38:56Z" /f >nul 2>&1 
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "PauseUpdatesExpiryTime" /t REG_SZ /d "%PAUSE_YEAR%-%PAUSE_MONTH%-%PAUSE_DAY%T10:38:56Z" /f >nul 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "PauseFeatureUpdatesEndTime" /t REG_SZ /d "%PAUSE_YEAR%-%PAUSE_MONTH%-%PAUSE_DAY%T10:38:56Z" /f >nul 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "PauseQualityUpdatesEndTime" /t REG_SZ /d "%PAUSE_YEAR%-%PAUSE_MONTH%-%PAUSE_DAY%T10:38:56Z" /f >nul 2>&1
+
+echo [31mWindows Updates have been paused until %PAUSE_YEAR%-%PAUSE_MONTH%-%PAUSE_DAY% [0m
+timeout /t 3 >nul
 cls
-echo [31mYour Windows Update is now paused until 2077!!!!!![0m
+goto op8
+
+:disable1
+cls
+echo Disabling Windows Update...
+sc stop wuauserv >nul 2>&1
+sc config wuauserv start= disabled >nul 2>&1
+sc stop UsoSvc >nul 2>&1
+sc config UsoSvc start= disabled >nul 2>&1
+sc stop WaaSMedicSvc >nul 2>&1
+sc config WaaSMedicSvc start= disabled >nul 2>&1
+sc stop DoSvc >nul 2>&1
+sc config DoSvc start= disabled >nul 2>&1
+schtasks /Change /TN "Microsoft\Windows\WindowsUpdate\sih" /Disable >nul 2>&1
+schtasks /Change /TN "Microsoft\Windows\WindowsUpdate\sihboot" /Disable >nul 2>&1
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 1 /f >nul 2>&1
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v DisableWindowsUpdateAccess /t REG_DWORD /d 1 /f >nul 2>&1
+cls
+echo [31mWindows Updates have been disabled.[0m
+timeout /t 4 >nul
+goto op8
+
+:enable1
+cls
+echo Re-enabling Windows Update...
+sc config wuauserv start= auto >nul 2>&1
+sc start wuauserv >nul 2>&1
+sc config UsoSvc start= demand >nul 2>&1
+sc start UsoSvc >nul 2>&1
+sc config WaaSMedicSvc start= demand >nul 2>&1
+sc start WaaSMedicSvc >nul 2>&1
+sc config DoSvc start= delayed-auto >nul 2>&1
+sc start DoSvc >nul 2>&1
+schtasks /Change /TN "Microsoft\Windows\WindowsUpdate\sih" /Enable >nul 2>&1
+schtasks /Change /TN "Microsoft\Windows\WindowsUpdate\sihboot" /Enable >nul 2>&1
+reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /f >nul 2>&1
+reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v DisableWindowsUpdateAccess /f >nul 2>&1
+cls
+echo [31mWindows Updates have been re-enabled.[0m
 timeout /t 4 >nul
 goto op8
 
