@@ -85,7 +85,7 @@ echo [33m----------------                                               -------
 echo [94m[11] [37m^|[0m Microsoft Store                                         [94m[25][0m ^| Microsoft Disk Benchmark
 echo [94m[12][0m ^| Microsoft Xbox Game Bar                                 [94m[26][0m ^| Personalization
 echo [94m[13][0m ^| Microsoft .NET Framework                                [94m[27][0m ^| Game Client - Steam/GOG/Origin/Epic/Ubisoft/Battle
-echo [94m[14][0m ^| Microsoft OneDrive                                      
+echo [94m[14][0m ^| Microsoft OneDrive                                      [94m[28][0m ^| User Account Management
 echo [94m[15][0m ^| Microsoft Music                                         
 echo [94m[16][0m ^| Microsoft Movies ^& TV                                   
 echo [94m[17][0m ^| Options For Windows 11                                  
@@ -126,6 +126,7 @@ if "%choice%"=="24" goto obslike
 if "%choice%"=="25" goto opdisk
 if "%choice%"=="26" goto pers
 if "%choice%"=="27" goto gameclient
+if "%choice%"=="28" goto usermanagement
 if "%choice%"=="forwindows11" goto forwindows11
 if "%choice%"=="0" exit
 
@@ -2917,6 +2918,146 @@ start /wait "" "%downloadDir%\obs-studio-x86.exe" /S
 timeout /t 2 >nul
 cls
 goto menu
+
+:usermanagement
+cls
+@echo off
+echo [0m=====================================================================================================================
+echo [32mUser Account Management[0m
+echo ---------------------------------------------------------------------------------------------------------------------
+echo [32m[1][0m ^| Add New User [33m(local account)[0m
+echo [32m[2][0m ^| Disable or Enable Administrator accounts
+echo [32m[3][0m ^| Delete User Account
+echo =====================================================================================================================
+echo.
+echo [32m[0][0m ^| Back to menu
+echo.
+set /p op=Type option:
+if "%op%"=="0" goto menu
+if "%op%"=="1" goto addnewu1
+if "%op%"=="2" goto addnewu2
+if "%op%"=="3" goto deleteuser
+cls
+echo [31mInvalid option. Please try again...[0m
+timeout /t 2 >nul
+cls
+goto usermanagement
+
+:addnewu1
+cls
+@echo off
+echo =====================================================================================================================
+echo [32mCreate New Local User Account[0m
+echo =====================================================================================================================
+echo.
+echo [32m[0][0m ^| Back to menu
+echo.
+
+:username
+setlocal EnableDelayedExpansion
+set /p usr=[33mEnter Your Username:[0m 
+if [!usr!]==[] goto username
+if "%usr%"=="0" goto usermanagement
+
+:passyesorno
+echo ---------------------------------------------------------------------------------------------------------------------
+set /p passyesno=[33mSet Password for This user[0m "[36m!usr![0m"[33m? Type[0m [32mYes[0m [33mor[0m [32mNo[0m: 
+if /i "%passyesno%"=="yes" goto :password
+if /i "%passyesno%"=="no" goto :admin1
+goto passyesorno
+
+:password
+echo ---------------------------------------------------------------------------------------------------------------------
+set /p pwd=[33mEnter Your Password:[0m 
+if [!pwd!]==[] goto password
+echo.
+
+:admin1
+setlocal EnableDelayedExpansion
+echo ---------------------------------------------------------------------------------------------------------------------
+set /p adm=[33mSet This user[0m "[36m!usr![0m" [33mto Administrators Group? Type[0m [32mYes[0m [33mor[0m [32mNo[0m: 
+if /i "%adm%"=="yes" goto adminyes
+if /i "%adm%"=="no" goto adminno
+echo [31mPlease type Yes or No (Yes = Administrators Group ^| No = Standard Users)[0m
+goto admin1
+
+:adminyes
+echo.
+net user /add "%usr%" "%pwd%" >nul
+net localgroup Administrators "%usr%" /add >nul
+cls
+echo =====================================================================================================================
+echo [37mYour account has been created ^| [32mUsername:[36m !usr! [37m^| [32mPassword:[36m !pwd! [37m^| [32mGroup:[36m Administrator[0m
+echo =====================================================================================================================
+timeout /t 4 >nul
+endlocal
+goto usermanagement
+
+:adminno
+echo.
+net user /add "%usr%" "%pwd%" >nul
+cls
+echo =====================================================================================================================
+echo [37mYour account has been created ^| [32mUsername:[36m !usr! [37m^| [32mPassword:[36m !pwd! [37m^| [32mGroup:[36m Standard User[0m
+echo =====================================================================================================================
+timeout /t 4 >nul
+endlocal
+goto usermanagement
+
+:addnewu2
+cls
+echo =====================================================================================================================
+echo [32mAdministrator Account Management[0m
+echo ---------------------------------------------------------------------------------------------------------------------
+echo Type [32myes[0m to enable Administrator account
+echo Type [32mno[0m to disable Administrator account
+echo =====================================================================================================================
+echo.
+echo [32m[0][0m ^| Back to menu
+echo.
+set /p op=Type option:
+if /i "%op%"=="no" goto disableadmin
+if /i "%op%"=="yes" goto enableadmin
+if "%op%"=="0" goto usermanagement
+echo Please type [32myes[0m or [32mno[0m
+timeout /t 1 >nul
+goto addnewu2
+
+:enableadmin
+cls
+net user administrator /active:yes >nul
+echo [32mAdministrator account is enabled![0m
+timeout /t 5 >nul
+goto usermanagement
+
+:disableadmin
+cls
+net user administrator /active:no >nul
+echo [32mAdministrator account is disabled![0m
+timeout /t 5 >nul
+goto usermanagement
+
+:addnewu3
+cls
+echo =====================================================================================================================
+echo [32mMicrosoft Account Management[0m
+echo ---------------------------------------------------------------------------------------------------------------------
+echo [32m[1][0m ^| Add Microsoft Account
+echo [32m[2][0m ^| Change Administrator Username
+echo [32m[3][0m ^| Delete User Account
+echo =====================================================================================================================
+echo.
+echo [32m[0][0m ^| Back to menu
+echo.
+
+
+:deleteuser
+cls
+echo [31mEnter username to delete:[0m
+set /p deluser=
+net user %deluser% /delete
+timeout /t 2 >nul
+goto addnewu3
 
 :end
 echo Done.
