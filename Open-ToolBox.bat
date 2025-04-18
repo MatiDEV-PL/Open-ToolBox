@@ -3,7 +3,6 @@ title Open ToolBox
 
 mode con: cols=125 lines=36
 
-:: Check for administrative privileges
 powershell -Command "if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) { exit 1 }"
 if '%errorlevel%' NEQ '0' (
     echo Requesting administrative privileges...
@@ -70,22 +69,22 @@ echo ===========================================================================
 echo.
 echo [94mTWEAK ^| FIXED ^| CLEANER ^| OTHER                                Software[0m 
 echo [33m-------------------------------                                --------
-echo [94m[1]  [37m^|[0m Action Center ^& Notification ^| Cortana ^| Printer        [94m[20] [37m^|[0m Microsoft Edge             
-echo [94m[2]  [37m^|[0m Clear Event Viewer Logs                                 [94m[21] [37m^|[0m Brave
-echo [94m[3]  [37m^|[0m Clear Cache Updates ^| Delivery Optimization             [94m[22] [37m^|[0m Firefox
-echo [94m[4]  [37m^|[0m Microsoft Activation                                    [94m[23] [37m^|[0m Google Chrome
-echo [94m[5]  [37m^|[0m Hibernation ^| Fastboot ^| Sleepmode ^| Sysmain            [94m[24] [37m^|[0m Opera
-echo [94m[6]  [37m^|[0m Pagefile (virtual memory)                               [94m[25] [37m^|[0m DuckDuckGo
-echo [94m[7]  [37m^|[0m Right click Take Ownership Menu                         [94m[26] [37m^|[0m Librewolf
-echo [94m[8]  [37m^|[0m Stop Windows Updates or disables them entirely          [94m[27] [37m^|[0m 7-Zip 24.07
-echo [94m[9]  [37m^|[0m Compact ^| LZX compression                               [94m[28] [37m^|[0m VLC    
-echo [94m[10] [37m^|[0m Remove Windows Defender                                 [94m[29] [37m^|[0m Notepad++ 8.6.9   
+echo [94m[1]  [37m^|[0m Action Center ^& Notification ^| Cortana ^| Printer        [94m[20] [37m^|[0m Internet Browser            
+echo [94m[2]  [37m^|[0m Clear Event Viewer Logs                                 [94m[21] [37m^|[0m Compression Software
+echo [94m[3]  [37m^|[0m Clear Cache Updates ^| Delivery Optimization             [94m[22] [37m^|[0m Video Software
+echo [94m[4]  [37m^|[0m Microsoft Activation                                    [94m[23] [37m^|[0m Text Editor Software
+echo [94m[5]  [37m^|[0m Hibernation ^| Fastboot ^| Sleepmode ^| Sysmain            [94m[24] [37m^|[0m Screen Recording Software
+echo [94m[6]  [37m^|[0m Pagefile (virtual memory)                               
+echo [94m[7]  [37m^|[0m Right click Take Ownership Menu                         
+echo [94m[8]  [37m^|[0m Stop Windows Updates or disables them entirely                       
+echo [94m[9]  [37m^|[0m Compact ^| LZX compression                                  
+echo [94m[10] [37m^|[0m Remove Windows Defender                                   
 echo.
 echo [94mUWP APPX ^| OTHER                                               OTHER ^| ETC
 echo [33m----------------                                               -----------
-echo [94m[11] [37m^|[0m Microsoft Store                                         [94m[30][0m ^| Microsoft Disk Benchmark
-echo [94m[12][0m ^| Microsoft Xbox Game Bar                                 [94m[31][0m ^| Personalization
-echo [94m[13][0m ^| Microsoft .NET Framework                                [94m[32][0m ^| Game Client - Steam/GOG/Origin/Epic/Ubisoft/Battle
+echo [94m[11] [37m^|[0m Microsoft Store                                         [94m[25][0m ^| Microsoft Disk Benchmark
+echo [94m[12][0m ^| Microsoft Xbox Game Bar                                 [94m[26][0m ^| Personalization
+echo [94m[13][0m ^| Microsoft .NET Framework                                [94m[27][0m ^| Game Client - Steam/GOG/Origin/Epic/Ubisoft/Battle
 echo [94m[14][0m ^| Microsoft OneDrive                                      
 echo [94m[15][0m ^| Microsoft Music                                         
 echo [94m[16][0m ^| Microsoft Movies ^& TV                                   
@@ -119,19 +118,14 @@ if "%choice%"=="16" goto movie
 if "%choice%"=="17" goto opwin11
 if "%choice%"=="18" goto op16
 if "%choice%"=="19" goto op17
-if "%choice%"=="20" goto edge
-if "%choice%"=="21" goto brave
-if "%choice%"=="22" goto firefox
-if "%choice%"=="23" goto chrome
-if "%choice%"=="24" goto opera
-if "%choice%"=="25" goto duckduckgo
-if "%choice%"=="26" goto librewolf
-if "%choice%"=="27" goto 7zip
-if "%choice%"=="28" goto vlc
-if "%choice%"=="29" goto notepad
-if "%choice%"=="30" goto opdisk
-if "%choice%"=="31" goto pers
-if "%choice%"=="32" goto gameclient
+if "%choice%"=="20" goto internetbrowser
+if "%choice%"=="21" goto compression
+if "%choice%"=="22" goto video
+if "%choice%"=="23" goto text
+if "%choice%"=="24" goto obslike
+if "%choice%"=="25" goto opdisk
+if "%choice%"=="26" goto pers
+if "%choice%"=="27" goto gameclient
 if "%choice%"=="forwindows11" goto forwindows11
 if "%choice%"=="0" exit
 
@@ -140,6 +134,33 @@ echo [31mInvalid option. Please select a number between 0 and 38.[0m
 timeout /t 2 >nul
 cls
 goto menu
+
+:internetbrowser
+cls
+echo [0m=====================================================================================================================
+echo [32mInternet Browser[0m
+echo ---------------------------------------------------------------------------------------------------------------------
+echo [32m[1][0m ^| Brave
+echo [32m[2][0m ^| Firefox
+echo [32m[3][0m ^| Google Chrome
+echo [32m[4][0m ^| Opera
+echo [32m[5][0m ^| DuckDuckGo
+echo [32m[6][0m ^| Librewolf
+echo [32m[7][0m ^| Edge
+echo =====================================================================================================================
+echo.
+echo [32m[0][0m ^| Back to menu
+echo.
+
+set /p op=Type option:
+if "%op%"=="1" goto brave
+if "%op%"=="2" goto firefox
+if "%op%"=="3" goto chrome
+if "%op%"=="4" goto opera
+if "%op%"=="5" goto duckduckgo
+if "%op%"=="6" goto librewolf
+if "%op%"=="7" goto edge
+if "%op%"=="0" goto menu
 
 :edge
 cls
@@ -417,40 +438,6 @@ cls
 echo [31mRestart the computer for the changes to take effect.[0m
 timeout /t 1 >nul
 goto actionandnoti
-
-:7zip
-cls
-@echo off
-echo  =====================================================================================================================
-echo  [32mInstalling 7-Zip...[0m
-echo  =====================================================================================================================
-timeout /t 1 >nul
-if "%PROCESSOR_ARCHITECTURE%"=="AMD64" goto 7zip64
-if "%PROCESSOR_ARCHITECTURE%"=="x86" goto 7zip32
-
-:7zip64
-cls
-curl -L -o "%downloadDir%\7z-x64.exe" "https://7-zip.org/a/7z2407-x64.exe"
-cls
-echo =====================================================================================================================
-echo [32mInstalling 7-Zip x64...[0m
-echo =====================================================================================================================
-start /wait "" "%downloadDir%\7z-x64.exe" /S
-timeout /t 2 >nul
-cls
-goto menu
-
-:7zip32
-cls
-curl -L -o "%downloadDir%\7z-x86.exe" "https://7-zip.org/a/7z2407.exe"
-cls
-echo =====================================================================================================================
-echo [32mInstalling 7-Zip x86...[0m
-echo =====================================================================================================================
-start /wait "" "%downloadDir%\7z-x86.exe" /S
-timeout /t 2 >nul
-cls
-goto menu
 
 :op2
 cls
@@ -2500,74 +2487,6 @@ timeout /t 3 >nul
 cls
 goto gameclient
 
-:vlc
-cls
-@echo off
-echo  =====================================================================================================================
-echo  [32mInstalling VLC...[0m
-echo  =====================================================================================================================
-timeout /t 1 >nul
-if "%PROCESSOR_ARCHITECTURE%"=="AMD64" goto vlc64
-if "%PROCESSOR_ARCHITECTURE%"=="x86" goto vlc32
-
-:vlc64
-cls
-curl -L -o "%downloadDir%\VLC-x64.exe" "https://get.videolan.org/vlc/3.0.21/win64/vlc-3.0.21-win64.exe"
-cls
-echo =====================================================================================================================
-echo [32mInstalling VLC x64...[0m
-echo =====================================================================================================================
-start /wait "" "%downloadDir%\VLC-x64.exe"
-timeout /t 2 >nul
-cls
-goto menu
-
-:vlc32
-cls
-curl -L -o "%downloadDir%\VLC-x86.exe" "https://get.videolan.org/vlc/3.0.21/win32/vlc-3.0.21-win32.exe"
-cls
-echo =====================================================================================================================
-echo [32mInstalling VLC x86...[0m
-echo =====================================================================================================================
-start /wait "" "%downloadDir%\VLC-x86.exe"
-timeout /t 2 >nul
-cls
-goto menu
-
-:notepad
-cls
-@echo off
-echo  =====================================================================================================================
-echo  [32mInstalling Notepad++...[0m
-echo  =====================================================================================================================
-timeout /t 1 >nul
-if "%PROCESSOR_ARCHITECTURE%"=="AMD64" goto notepad64
-if "%PROCESSOR_ARCHITECTURE%"=="x86" goto notepad32
-
-:notepad64
-cls
-curl -L -o "%downloadDir%\npp-x64.exe" "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.9/npp.8.6.9.Installer.x64.exe"
-cls
-echo =====================================================================================================================
-echo [32mInstalling Notepad++ x64...[0m
-echo =====================================================================================================================
-start /wait "" "%downloadDir%\npp-x64.exe" /S
-timeout /t 2 >nul
-cls
-goto menu
-
-:notepad32
-cls
-curl -L -o "%downloadDir%\npp-x86.exe" "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.9/npp.8.6.9.Installer.exe"
-cls
-echo =====================================================================================================================
-echo [32mInstalling Notepad++ x86...[0m
-echo =====================================================================================================================
-start /wait "" "%downloadDir%\npp-x86.exe" /S
-timeout /t 2 >nul
-cls
-goto menu
-
 :defender
 cls
 echo =====================================================================================================================
@@ -2605,6 +2524,397 @@ powershell -Command "Add-MpPreference -ExclusionPath '%downloadDir%\DefenderRemo
 start /wait "" "%downloadDir%\DefenderRemover.exe" /S
 powershell -Command "Remove-MpPreference -ExclusionPath '%downloadDir%\DefenderRemover.exe'" >nul 2>&1
 
+cls
+goto menu
+
+:compression
+cls
+echo =====================================================================================================================
+echo [32mCompression software.[0m
+echo ---------------------------------------------------------------------------------------------------------------------
+echo [32m[1][0m ^| 7-zip 24.09 64/32bit
+echo [32m[2][0m ^| Winrar 7.11 64bit (trial) 
+echo [32m[3][0m ^| PeaZip 10.4.0 64/32bit
+echo =====================================================================================================================
+echo.
+echo [32m[0][0m ^| Back          
+echo.
+
+set /p op=Type option:
+if "%op%"=="1" goto 7zip
+if "%op%"=="2" goto winrar
+if "%op%"=="3" goto peazip
+if "%op%"=="0" goto menu
+
+:7zip
+cls
+@echo off
+echo  =====================================================================================================================
+echo  [32mInstalling 7-Zip...[0m
+echo  =====================================================================================================================
+if "%PROCESSOR_ARCHITECTURE%"=="AMD64" goto 7zip64
+if "%PROCESSOR_ARCHITECTURE%"=="x86" goto 7zip32
+
+:7zip64
+cls
+curl -L -o "%downloadDir%\7z-x64.exe" "https://7-zip.org/a/7z2409-x64.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling 7-Zip x64...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\7z-x64.exe" /S
+timeout /t 2 >nul
+cls
+goto menu
+
+:7zip32
+cls
+curl -L -o "%downloadDir%\7z-x86.exe" "https://7-zip.org/a/7z2409.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling 7-Zip x86...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\7z-x86.exe" /S
+timeout /t 2 >nul
+cls
+goto menu
+
+:winrar
+cls
+@echo off
+echo  =====================================================================================================================
+echo  [32mInstalling WinRAR...[0m
+echo  =====================================================================================================================
+timeout /t 1 >nul
+if "%PROCESSOR_ARCHITECTURE%"=="AMD64" goto winrar64
+if "%PROCESSOR_ARCHITECTURE%"=="x86" goto winrar32
+
+:winrar64
+cls
+curl -L -o "%downloadDir%\winrar-x64.exe" "https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-711.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling WinRAR x64...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\winrar-x64.exe" /S
+timeout /t 2 >nul
+cls
+goto menu
+
+:winrar32
+cls
+curl -L -o "%downloadDir%\winrar-x86.exe" "https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x32-711.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling WinRAR x86...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\winrar-x86.exe" /S
+timeout /t 2 >nul
+cls
+goto menu
+
+:peazip
+cls
+@echo off
+echo  =====================================================================================================================
+echo  [32mInstalling PeaZip...[0m
+echo  =====================================================================================================================
+if "%PROCESSOR_ARCHITECTURE%"=="AMD64" goto peazip64
+if "%PROCESSOR_ARCHITECTURE%"=="x86" goto peazip32
+
+:peazip64
+cls
+curl -L -o "%downloadDir%\peazip-x64.exe" "https://github.com/peazip/PeaZip/releases/download/10.4.0/peazip-10.4.0.WIN64.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling PeaZip x64...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\peazip-x64.exe" /VERYSILENT
+timeout /t 2 >nul
+cls
+goto menu
+
+:peazip32
+cls
+curl -L -o "%downloadDir%\peazip-x86.exe" "https://github.com/peazip/PeaZip/releases/download/10.4.0/peazip-10.4.0.WINDOWS.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling PeaZip x86...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\peazip-x86.exe" /VERYSILENT
+timeout /t 2 >nul
+cls
+goto menu
+
+:video
+cls
+echo =====================================================================================================================
+echo [32mVideo software.[0m
+echo ---------------------------------------------------------------------------------------------------------------------
+echo [32m[1][0m ^| VLC 3.0.21 64/32bit
+echo [32m[2][0m ^| MPV 2025-04-18 12:07 64bit
+echo [32m[3][0m ^| SMPlayer 24.5.0 64/32bit
+echo [32m[4][0m ^| MPC-HC 2.4.1 64/32bit
+echo =====================================================================================================================
+echo.
+echo [32m[0][0m ^| Back          
+echo.
+
+set /p op=Type option:
+if "%op%"=="1" goto vlc
+if "%op%"=="2" goto mpv
+if "%op%"=="3" goto smplayer
+if "%op%"=="4" goto mpchc
+if "%op%"=="0" goto menu
+
+:vlc
+cls
+@echo off
+echo  =====================================================================================================================
+echo  [32mInstalling VLC...[0m
+echo  =====================================================================================================================
+timeout /t 1 >nul
+if "%PROCESSOR_ARCHITECTURE%"=="AMD64" goto vlc64
+if "%PROCESSOR_ARCHITECTURE%"=="x86" goto vlc32
+
+:vlc64
+cls
+curl -L -o "%downloadDir%\VLC-x64.exe" "https://get.videolan.org/vlc/3.0.21/win64/vlc-3.0.21-win64.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling VLC x64...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\VLC-x64.exe"
+timeout /t 2 >nul
+cls
+goto menu
+
+:vlc32
+cls
+curl -L -o "%downloadDir%\VLC-x86.exe" "https://get.videolan.org/vlc/3.0.21/win32/vlc-3.0.21-win32.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling VLC x86...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\VLC-x86.exe"
+timeout /t 2 >nul
+cls
+goto menu
+
+:mpv
+cls
+@echo off
+echo  =====================================================================================================================
+echo  [32mInstalling MPV...[0m
+echo  =====================================================================================================================
+timeout /t 1 >nul
+if "%PROCESSOR_ARCHITECTURE%"=="AMD64" goto mpv64
+if "%PROCESSOR_ARCHITECTURE%"=="x86" goto mpv32
+
+:mpv64
+cls
+if not exist "%ProgramFiles%\mpv" mkdir "%ProgramFiles%\mpv"
+curl -L -o "%downloadDir%\mpv-x64.7z" "https://github.com/zhongfly/mpv-winbuild/releases/download/2025-04-18-3600c71/mpv-x86_64-20250418-git-3600c71.7z"
+cls
+echo =====================================================================================================================
+echo [32mInstalling MPV x64...[0m
+echo =====================================================================================================================
+"%ProgramFiles%\7-Zip\7z.exe" x "%downloadDir%\mpv-x64.7z" -o"%ProgramFiles%\mpv" -y
+setx PATH "%PATH%;%ProgramFiles%\mpv"
+powershell "$WshShell = New-Object -comObject WScript.Shell; $Shortcut = $WshShell.CreateShortcut('%USERPROFILE%\Desktop\MPV.lnk'); $Shortcut.TargetPath = '%ProgramFiles%\mpv\mpv.exe'; $Shortcut.Save()"
+powershell "$WshShell = New-Object -comObject WScript.Shell; $Shortcut = $WshShell.CreateShortcut('C:\ProgramData\Microsoft\Windows\Start Menu\Programs\MPV.lnk'); $Shortcut.TargetPath = '%ProgramFiles%\mpv\mpv.exe'; $Shortcut.Save()"
+
+timeout /t 2 >nul
+cls
+goto menu
+
+:mpv32
+cls
+echo This software is only for 64bit systems
+timeout /t 2 >nul
+cls
+goto menu
+
+:smplayer
+cls
+@echo off
+echo  =====================================================================================================================
+echo  [32mInstalling SMPlayer...[0m
+echo  =====================================================================================================================
+timeout /t 1 >nul
+if "%PROCESSOR_ARCHITECTURE%"=="AMD64" goto smplayer64
+if "%PROCESSOR_ARCHITECTURE%"=="x86" goto smplayer32
+
+:smplayer64
+cls
+curl -L -o "%downloadDir%\SMPlayer-x64.exe" "https://github.com/smplayer-dev/smplayer/releases/download/v24.5.0/smplayer-24.5.0-x64-unsigned.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling SMPlayer x64...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\SMPlayer-x64.exe"
+timeout /t 2 >nul
+cls
+goto menu
+
+:smplayer32
+cls
+curl -L -o "%downloadDir%\SMPlayer-x86.exe" "https://github.com/smplayer-dev/smplayer/releases/download/v24.5.0/smplayer-24.5.0-win32-qt5.6-unsigned.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling SMPlayer x86...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\SMPlayer-x86.exe"
+timeout /t 2 >nul
+cls
+goto menu
+
+:mpchc
+cls
+@echo off
+echo  =====================================================================================================================
+echo  [32mInstalling MPC-HC...[0m
+echo  =====================================================================================================================
+timeout /t 1 >nul
+if "%PROCESSOR_ARCHITECTURE%"=="AMD64" goto mpchc64
+if "%PROCESSOR_ARCHITECTURE%"=="x86" goto mpchc32
+
+:mpchc64
+cls
+curl -L -o "%downloadDir%\MPC-HC-x64.exe" "https://github.com/clsid2/mpc-hc/releases/download/2.4.1/MPC-HC.2.4.1.x64.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling MPC-HC x64...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\MPC-HC-x64.exe" /VERYSILENT
+timeout /t 2 >nul
+cls
+goto menu
+
+:mpchc32
+cls
+curl -L -o "%downloadDir%\MPC-HC-x86.exe" "https://github.com/clsid2/mpc-hc/releases/download/2.4.1/MPC-HC.2.4.1.x86.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling MPC-HC x86...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\MPC-HC-x86.exe" /VERYSILENT
+timeout /t 2 >nul
+cls
+goto menu
+
+:text
+cls
+echo =====================================================================================================================
+echo [32mVideo software.[0m
+echo ---------------------------------------------------------------------------------------------------------------------
+echo [32m[1][0m ^| Notepad++ 8.7.9 64/32bit
+echo [32m[2][0m ^| Notepads 1.5.6.0 64/32bit
+echo =====================================================================================================================
+echo.
+echo [32m[0][0m ^| Back          
+echo.
+
+set /p op=Type option:
+if "%op%"=="1" goto notepad
+if "%op%"=="2" goto Notepads
+if "%op%"=="0" goto menu
+
+:notepad
+cls
+@echo off
+echo  =====================================================================================================================
+echo  [32mInstalling Notepad++...[0m
+echo  =====================================================================================================================
+timeout /t 1 >nul
+if "%PROCESSOR_ARCHITECTURE%"=="AMD64" goto notepad64
+if "%PROCESSOR_ARCHITECTURE%"=="x86" goto notepad32
+
+:notepad64
+cls
+curl -L -o "%downloadDir%\npp-x64.exe" "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.9/npp.8.7.9.Installer.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling Notepad++ x64...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\npp-x64.exe" /S
+timeout /t 2 >nul
+cls
+goto menu
+
+:notepad32
+cls
+curl -L -o "%downloadDir%\npp-x86.exe" "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.9/npp.8.7.9.Installer.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling Notepad++ x86...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\npp-x86.exe" /S
+timeout /t 2 >nul
+cls
+goto menu
+
+:Notepads
+cls
+@echo off
+curl -L -o "%downloadDir%\Notepads.msixbundle" "https://github.com/0x7c13/Notepads/releases/download/v1.5.6.0/Notepads_1.5.6.0_x86_x64_arm64.msixbundle"
+cls
+echo =====================================================================================================================
+echo [32mInstalling Notepads...[0m
+echo =====================================================================================================================
+PowerShell -Command "Add-AppxPackage -Path '%downloadDir%\Notepads.msixbundle'"
+timeout /t 2 >nul
+cls
+goto menu
+
+:obslike
+cls
+echo =====================================================================================================================
+echo [32mVideo software[0m
+echo ---------------------------------------------------------------------------------------------------------------------
+echo [32m[1][0m ^| OBS Studio 30.0.2 64/32bit
+echo ---------------------------------------------------------------------------------------------------------------------
+echo [31mOBS is the only program in existance so don't try me.[0m
+echo =====================================================================================================================
+echo.
+echo [32m[0][0m ^| Back          
+echo.
+
+set /p op=Type option:
+if "%op%"=="1" goto obs
+if "%op%"=="0" goto menu
+
+:obs
+cls
+@echo off
+echo  =====================================================================================================================
+echo  [32mInstalling OBS Studio...[0m
+echo  =====================================================================================================================
+timeout /t 1 >nul
+if "%PROCESSOR_ARCHITECTURE%"=="AMD64" goto obs64
+if "%PROCESSOR_ARCHITECTURE%"=="x86" goto obs32
+
+:obs64
+cls
+curl -L -o "%downloadDir%\obs-studio-x64.exe" "https://github.com/obsproject/obs-studio/releases/download/30.0.2/OBS-Studio-30.0.2-Full-Installer-x64.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling OBS Studio x64...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\obs-studio-x64.exe" /S
+timeout /t 2 >nul
+cls
+goto menu
+
+:obs32
+cls
+curl -L -o "%downloadDir%\obs-studio-x86.exe" "https://github.com/obsproject/obs-studio/releases/download/30.0.2/OBS-Studio-30.0.2-Full-Installer-x86.exe"
+cls
+echo =====================================================================================================================
+echo [32mInstalling OBS Studio x86...[0m
+echo =====================================================================================================================
+start /wait "" "%downloadDir%\obs-studio-x86.exe" /S
+timeout /t 2 >nul
 cls
 goto menu
 
