@@ -14,6 +14,7 @@ Open ToolBox is the program I utilize for my second project, Clean Windows. It c
 
 ## 🔍 Sources:
 - [Microsoft-Activation-Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts)
+- [ExplorerPatcher](https://github.com/valinet/ExplorerPatcher)
 
 ## 🎁 If you like my work consider giving tip
 [<img src="https://liberapay.com/assets/widgets/donate.svg" width="100">](https://liberapay.com/MatiDEV-PL/donate) 
