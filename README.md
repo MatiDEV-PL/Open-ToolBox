@@ -12,6 +12,9 @@ Open ToolBox is the program I utilize for my second project, Clean Windows. It c
 ## 🖼️ Screenshot:
 <img src="https://github.com/MatiDEV-PL/Open-ToolBox/blob/main/Screenshot.png">
 
+## 🔍 Sources:
+- [Microsoft-Activation-Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts)
+
 ## 🎁 If you like my work consider giving tip
 [<img src="https://liberapay.com/assets/widgets/donate.svg" width="100">](https://liberapay.com/MatiDEV-PL/donate) 
 
