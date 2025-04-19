@@ -1,7 +1,7 @@
 @echo off
 title Open ToolBox
 
-mode con: cols=125 lines=36
+mode con: cols=128 lines=36
 
 powershell -Command "if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) { exit 1 }"
 if '%errorlevel%' NEQ '0' (
@@ -60,6 +60,7 @@ if "%PROCESSOR_ARCHITECTURE%"=="AMD64" (
 )
 
 :menu
+mode con: cols=128 lines=36
 cls
 echo =====================================================================================================================
 echo USER: [33m%USERNAME%[0m ^| COMPUTERNAME: [33m%COMPUTERNAME%[0m ^| NETFX4: [33m%FNETFX4%[0m ^| %TPMX%
@@ -67,14 +68,14 @@ echo CURRENT OS: [104m[37m %VERSION1% %VERSION2% %VERSION3% [0m[41m[37m%DFM
 echo TIME ZONE: [31m%tzone2%[0m ^| [31m%tzone1%[0m
 echo =====================================================================================================================
 echo.
-echo [94mTWEAK ^| FIXED ^| CLEANER ^| OTHER                                Software[0m 
-echo [33m-------------------------------                                --------
+echo [94mTWEAKS ^| ACTIVATION ^| CLEANER ^| OTHER                          Software[0m 
+echo [33m-------------------------------------                          --------
 echo [94m[1]  [37m^|[0m Action Center ^& Notification ^| Cortana ^| Printer        [94m[20] [37m^|[0m Internet Browser            
 echo [94m[2]  [37m^|[0m Clear Event Viewer Logs                                 [94m[21] [37m^|[0m Compression Software
 echo [94m[3]  [37m^|[0m Clear Cache Updates ^| Delivery Optimization             [94m[22] [37m^|[0m Video Software
 echo [94m[4]  [37m^|[0m Microsoft Activation                                    [94m[23] [37m^|[0m Text Editor Software
 echo [94m[5]  [37m^|[0m Hibernation ^| Fastboot ^| Sleepmode ^| Sysmain            [94m[24] [37m^|[0m Screen Recording Software
-echo [94m[6]  [37m^|[0m Pagefile (virtual memory)                               
+echo [94m[6]  [37m^|[0m Pagefile (virtual memory)                               [94m[25] [37m^|[0m Driver Updater
 echo [94m[7]  [37m^|[0m Right click Take Ownership Menu                         
 echo [94m[8]  [37m^|[0m Stop Windows Updates or disables them entirely                       
 echo [94m[9]  [37m^|[0m Compact ^| LZX compression                                  
@@ -82,11 +83,11 @@ echo [94m[10] [37m^|[0m Remove Windows Defender
 echo.
 echo [94mUWP APPX ^| OTHER                                               OTHER ^| ETC
 echo [33m----------------                                               -----------
-echo [94m[11] [37m^|[0m Microsoft Store                                         [94m[25][0m ^| Microsoft Disk Benchmark
-echo [94m[12][0m ^| Microsoft Xbox Game Bar                                 [94m[26][0m ^| Personalization
-echo [94m[13][0m ^| Microsoft .NET Framework                                [94m[27][0m ^| Game Client - Steam/GOG/Origin/Epic/Ubisoft/Battle
-echo [94m[14][0m ^| Microsoft OneDrive                                      [94m[28][0m ^| User Account Management
-echo [94m[15][0m ^| Microsoft Music                                         
+echo [94m[11] [37m^|[0m Microsoft Store                                         [94m[26][0m ^| Microsoft Disk Benchmark
+echo [94m[12][0m ^| Microsoft Xbox Game Bar                                 [94m[27][0m ^| Personalization
+echo [94m[13][0m ^| Microsoft .NET Framework                                [94m[28][0m ^| Game Client - Steam/GOG/Origin/Epic/Ubisoft/Battle
+echo [94m[14][0m ^| Microsoft OneDrive                                      [94m[29][0m ^| User Account Management
+echo [94m[15][0m ^| Microsoft Music                                         [94m[30][0m ^| Winget Package Manager
 echo [94m[16][0m ^| Microsoft Movies ^& TV                                   
 echo [94m[17][0m ^| Options For Windows 11                                  
 echo.
@@ -97,7 +98,7 @@ echo [94m[19][0m ^| DirectX (system)
 echo.
 echo [94m[0]  [37m^|[0m Exit[0m
 echo.
-set /p choice=[0mEnter your choice (0-32):[0m
+set /p choice=[0mEnter your choice (0-30):[0m
 
 if "%choice%"=="1" goto actionandnoti
 if "%choice%"=="2" goto op2
@@ -123,15 +124,17 @@ if "%choice%"=="21" goto compression
 if "%choice%"=="22" goto video
 if "%choice%"=="23" goto text
 if "%choice%"=="24" goto obslike
-if "%choice%"=="25" goto opdisk
-if "%choice%"=="26" goto pers
-if "%choice%"=="27" goto gameclient
-if "%choice%"=="28" goto usermanagement
+if "%choice%"=="25" goto drivers
+if "%choice%"=="26" goto opdisk
+if "%choice%"=="27" goto pers
+if "%choice%"=="28" goto gameclient
+if "%choice%"=="29" goto usermanagement
+if "%choice%"=="30" goto wingetmenu
 if "%choice%"=="forwindows11" goto forwindows11
 if "%choice%"=="0" exit
 
 cls
-echo [31mInvalid option. Please select a number between 0 and 38.[0m
+echo [31mInvalid option. Please select a number between 0 and 30.[0m
 timeout /t 2 >nul
 cls
 goto menu
@@ -141,13 +144,13 @@ cls
 echo [0m=====================================================================================================================
 echo [32mInternet Browser[0m
 echo ---------------------------------------------------------------------------------------------------------------------
-echo [32m[1][0m ^| Brave
-echo [32m[2][0m ^| Firefox
-echo [32m[3][0m ^| Google Chrome
-echo [32m[4][0m ^| Opera
-echo [32m[5][0m ^| DuckDuckGo
-echo [32m[6][0m ^| Librewolf
-echo [32m[7][0m ^| Edge
+echo [32m[1][0m ^| Brave 1.77.100 64/32bit
+echo [32m[2][0m ^| Firefox latest 64/32bit
+echo [32m[3][0m ^| Google Chrome latest 64/32bit
+echo [32m[4][0m ^| Opera 117.0.5408.154 64/32bit
+echo [32m[5][0m ^| DuckDuckGo latest 64/32bit
+echo [32m[6][0m ^| Librewolf 64bit
+echo [32m[7][0m ^| Edge latest 64/32bit
 echo =====================================================================================================================
 echo.
 echo [32m[0][0m ^| Back to menu
@@ -163,6 +166,12 @@ if "%op%"=="6" goto librewolf
 if "%op%"=="7" goto edge
 if "%op%"=="0" goto menu
 
+cls
+echo [31mInvalid option. Please select a number between 0 and 7.[0m
+timeout /t 2 >nul
+cls
+goto internetbrowser
+
 :edge
 cls
 call :download "Microsoft Edge" "MicrosoftEdgeSetup.exe" "https://go.microsoft.com/fwlink/?linkid=2109047&Channel=Stable&language=en&consent=1" "/silent /install"
@@ -171,10 +180,10 @@ goto end
 :brave
 cls
 if "%arch%"=="64" (
-    set "url=https://github.com/brave/brave-browser/releases/download/v1.67.123/BraveBrowserStandaloneSetup.exe"
+    set "url=https://github.com/brave/brave-browser/releases/download/v1.77.100/BraveBrowserStandaloneSetup.exe"
     set "fileName=BraveBrowserSetup64.exe"
 ) else (
-    set "url=https://github.com/brave/brave-browser/releases/download/v1.67.123/BraveBrowserStandaloneSetup32.exe"
+    set "url=https://github.com/brave/brave-browser/releases/download/v1.77.100/BraveBrowserStandaloneSetup32.exe"
     set "fileName=BraveBrowserSetup32.exe"
 )
 call :download "Brave" "%fileName%" "%url%" "/silent /install"
@@ -200,10 +209,10 @@ goto end
 :opera
 cls
 if "%arch%"=="64" (
-    set "url=https://download3.operacdn.com/pub/opera/desktop/76.0.4017.177/win/Opera_76.0.4017.177_Setup_x64.exe"
+    set "url=https://download3.operacdn.com/pub/opera/desktop/117.0.5408.154/win/Opera_117.0.5408.154_Setup_x64.exe"
     set "fileName=OperaSetup_x64.exe"
 ) else (
-    set "url=https://download3.operacdn.com/pub/opera/desktop/76.0.4017.177/win/Opera_76.0.4017.177_Setup.exe"
+    set "url=https://download3.operacdn.com/pub/opera/desktop/117.0.5408.154/win/Opera_117.0.5408.154_Setup.exe"
     set "fileName=OperaSetup.exe"
 )
 call :download "Opera" "%fileName%" "%url%" "/silent /install"
@@ -251,7 +260,7 @@ goto menu
 
 :librewolf
 cls
-call :download "Librewolf" "LibrewolfSetup.exe" "https://gitlab.com/api/v4/projects/44042130/packages/generic/librewolf/127.0.2-2/librewolf-127.0.2-2-windows-x86_64-setup.exe" "/S"
+call :download "Librewolf" "LibrewolfSetup.exe" "https://gitlab.com/api/v4/projects/44042130/packages/generic/librewolf/137.0.2-1/librewolf-137.0.2-1-windows-x86_64-setup.exe" "/S"
 goto end
 
 :exit
@@ -554,8 +563,8 @@ goto menu
 
 :op4
 cls
-set "scriptUrl=https://raw.githubusercontent.com/massgravel/Microsoft-Activation-Scripts/master/MAS/All-In-One-Version/MAS_AIO-CRC32_31F7FD1E.cmd"
-set "scriptName=MAS_AIO-CRC32_31F7FD1E.cmd"
+set "scriptUrl=https://raw.githubusercontent.com/massgravel/Microsoft-Activation-Scripts/refs/heads/master/MAS/All-In-One-Version-KL/MAS_AIO.cmd"
+set "scriptName=MAS_AIO.cmd"
 
 :: Download the script
 curl -L -o "%downloadDir%\%scriptName%" "%scriptUrl%"
@@ -2185,7 +2194,7 @@ if "%op%"=="4" goto pers4
 if "%op%"=="0" goto menu
 
 cls
-echo [31mInvalid option. Please select a letter between 0 and 4.[0m
+echo [31mInvalid option. Please select a number between 0 and 4.[0m
 timeout /t 2 >nul
 cls
 goto pers
@@ -2278,7 +2287,7 @@ echo [31mNOTE: Please install[0m [33m"Visual C++ Redistributables AIO"[31m b
 echo [31mNOTE: Required Internet for download.[0m                                                         
 echo =====================================================================================================================
 echo.
-echo [0] %White%Back to menu
+echo [32m[0][0m Back to menu
 echo.
 
 timeout /t 1 >nul
@@ -2298,7 +2307,7 @@ if "%op%"=="12" goto gameclient12
 if "%op%"=="0" goto menu
 
 cls
-echo Wrong numbers please try again...
+echo [31mInvalid option. Please select a number between 0 and 12.[0m
 timeout /t 2 >nul
 cls
 goto gameclient
@@ -2328,7 +2337,7 @@ if "%op%"=="1" goto gameclient10
 if "%op%"=="0" goto gameclient
 
 cls
-echo Wrong numbers please try again...
+echo [31mInvalid option. Please select a number between 0 and 3.[0m
 timeout /t 2 >nul
 cls
 goto gameclient
@@ -2504,7 +2513,7 @@ if "%op%"=="1" goto defender1
 if "%op%"=="0" goto menu
 
 cls
-echo Wrong numbers please try again...
+echo [31mInvalid option. Please select a number between 0 and 2.[0m
 timeout /t 2 >nul
 cls
 goto defender
@@ -2546,6 +2555,12 @@ if "%op%"=="1" goto 7zip
 if "%op%"=="2" goto winrar
 if "%op%"=="3" goto peazip
 if "%op%"=="0" goto menu
+
+cls
+echo [31mInvalid option. Please select a number between 0 and 3.[0m
+timeout /t 2 >nul
+cls
+goto compression
 
 :7zip
 cls
@@ -2667,6 +2682,12 @@ if "%op%"=="2" goto mpv
 if "%op%"=="3" goto smplayer
 if "%op%"=="4" goto mpchc
 if "%op%"=="0" goto menu
+
+cls
+echo [31mInvalid option. Please select a number between 0 and 4.[0m
+timeout /t 2 >nul
+cls
+goto video
 
 :vlc
 cls
@@ -2821,6 +2842,12 @@ if "%op%"=="1" goto notepad
 if "%op%"=="2" goto Notepads
 if "%op%"=="0" goto menu
 
+cls
+echo [31mInvalid option. Please select a number between 0 and 2.[0m
+timeout /t 2 >nul
+cls
+goto text
+
 :notepad
 cls
 @echo off
@@ -2885,6 +2912,12 @@ set /p op=Type option:
 if "%op%"=="1" goto obs
 if "%op%"=="0" goto menu
 
+cls
+echo [31mInvalid option. Please select a number between 0 and 1.[0m
+timeout /t 2 >nul
+cls
+goto obslike
+
 :obs
 cls
 @echo off
@@ -2938,7 +2971,7 @@ if "%op%"=="1" goto addnewu1
 if "%op%"=="2" goto addnewu2
 if "%op%"=="3" goto deleteuser
 cls
-echo [31mInvalid option. Please try again...[0m
+echo [31mInvalid option. Please select a number between 0 and 3.[0m
 timeout /t 2 >nul
 cls
 goto usermanagement
@@ -3037,20 +3070,6 @@ echo [32mAdministrator account is disabled![0m
 timeout /t 5 >nul
 goto usermanagement
 
-:addnewu3
-cls
-echo =====================================================================================================================
-echo [32mMicrosoft Account Management[0m
-echo ---------------------------------------------------------------------------------------------------------------------
-echo [32m[1][0m ^| Add Microsoft Account
-echo [32m[2][0m ^| Change Administrator Username
-echo [32m[3][0m ^| Delete User Account
-echo =====================================================================================================================
-echo.
-echo [32m[0][0m ^| Back to menu
-echo.
-
-
 :deleteuser
 cls
 echo [31mEnter username to delete:[0m
@@ -3058,6 +3077,176 @@ set /p deluser=
 net user %deluser% /delete
 timeout /t 2 >nul
 goto addnewu3
+
+:wingetmenu
+cls
+@echo off
+echo [0m=====================================================================================================================
+echo [32mWinget Package Manager[0m
+echo ---------------------------------------------------------------------------------------------------------------------
+echo [32m[1][0m ^| Search for packages
+echo [32m[2][0m ^| Install a package
+echo [32m[3][0m ^| Upgrade all installed packages
+echo [32m[4][0m ^| List installed packages
+echo [32m[5][0m ^| Remove a package
+echo =====================================================================================================================
+echo.
+echo [32m[0][0m ^| Back to menu
+echo.
+
+set /p op=Type option:
+if "%op%"=="0" goto menu
+if "%op%"=="1" goto winget_search
+if "%op%"=="2" goto winget_install
+if "%op%"=="3" goto winget_upgrade
+if "%op%"=="4" goto winget_list
+if "%op%"=="5" goto winget_remove
+
+cls
+echo [31mInvalid option. Please select a number between 0 and 5.[0m
+timeout /t 2 >nul
+cls
+goto wingetmenu
+
+:winget_search
+cls
+echo =====================================================================================================================
+echo [32mSearch for Packages[0m
+echo =====================================================================================================================
+echo.
+echo [33mResults will be shown page by page. Press [36mSPACE [33mto see next page, [36mQ [33mto quit viewing.[0m
+echo.
+set /p search_query=Enter search term: 
+cls
+winget search "%search_query%" | findstr /n "^" | more
+echo.
+echo Press any key to return to Winget menu...
+pause >nul
+goto wingetmenu
+
+:winget_install
+cls
+echo =====================================================================================================================
+echo [32mInstall Package[0m
+echo ---------------------------------------------------------------------------------------------------------------------
+echo Popular package examples:
+echo [33m - Visual Studio Code: ID = [36m"Microsoft.VisualStudioCode"[0m [33mor Name = [36m"VSCode"[0m
+echo [33m - Chrome: ID = [36m"Google.Chrome"[0m [33mor Name = [36m"Chrome"[0m
+echo =====================================================================================================================
+echo.
+set /p package=Enter package ID or name to install:  
+winget install "%package%"
+echo.
+echo Press any key to return to Winget menu...
+pause >nul
+goto wingetmenu
+
+
+:winget_upgrade
+cls
+echo =====================================================================================================================
+echo [32mUpgrading All Packages[0m
+echo =====================================================================================================================
+echo.
+winget upgrade --all
+echo.
+echo Press any key to return to Winget menu...
+pause >nul
+goto wingetmenu
+
+:winget_list
+cls
+echo =====================================================================================================================
+echo [32mInstalled Packages[0m
+echo =====================================================================================================================
+echo.
+echo [33mResults will be shown page by page. Press [36mSPACE [33mto see next page, [36mQ [33mto quit viewing.[0m
+echo.
+winget list | findstr /n "^" | more
+echo.
+echo Press any key to return to Winget menu...
+pause >nul
+goto wingetmenu
+
+:winget_remove
+cls
+echo =====================================================================================================================
+echo [32mRemove Package[0m
+echo ---------------------------------------------------------------------------------------------------------------------
+echo [33mEnter either the package ID [36m(e.g. Microsoft.VisualStudioCode) [33mor package name [36m(e.g. Visual Studio Code)[0m
+echo =====================================================================================================================
+echo.
+cls
+set /p package=Enter package ID or name to remove:  
+winget uninstall "%package%"
+echo.
+echo Press any key to return to Winget menu...
+pause >nul
+goto wingetmenu
+
+:drivers
+cls
+echo =====================================================================================================================
+echo [32mDriver Updater[0m
+echo ---------------------------------------------------------------------------------------------------------------------
+echo [32m[1][0m ^| DriverEasy 6.1.2.29728 64/32bit
+echo [32m[2][0m ^| Snappy Driver Installer Lite Latest 64/32bit
+echo [32m[3][0m ^| Driver Pack Solution Latest 64/32bit
+echo =====================================================================================================================
+echo.
+echo [32m[0][0m Back to menu
+echo.
+
+set /p "choice=Enter your choice: "
+if "%choice%"=="1" goto drivereasy
+if "%choice%"=="2" goto snappydriver
+if "%choice%"=="3" goto driverpack
+if "%choice%"=="0" goto menu
+goto driver
+
+:drivereasy
+cls
+echo [0m=====================================================================================================================
+echo [32mInstalling DriverEasy...[0m
+echo =====================================================================================================================
+curl -L "https://github.com/MatiDEV-PL/Open-ToolBox/raw/refs/heads/main/DriverEasy_Setup.msi" -o "%USERPROFILE%\Downloads\DriverEasy_Setup.msi"
+start /wait "" "%USERPROFILE%\Downloads\DriverEasy_Setup.msi" /quiet
+cls
+echo Installation complete!
+timeout /t 2 >nul
+mode con: cols=128 lines=36
+goto drivers
+
+:snappydriver
+cls
+echo [0m=====================================================================================================================
+echo [32mInstalling Snappy Driver...[0m
+echo =====================================================================================================================
+set SDI_VERSION=R2503
+curl -L "https://sdi-tool.org/releases/SDI_%SDI_VERSION%.zip" -o "%USERPROFILE%\Downloads\SDI_%SDI_VERSION%.zip"
+mkdir "%ProgramFiles%\Snappy Driver Installer" 2>nul
+powershell -Command "Expand-Archive -Path '%USERPROFILE%\Downloads\SDI_%SDI_VERSION%.zip' -DestinationPath '%ProgramFiles%\Snappy Driver Installer' -Force"
+powershell -Command "$WshShell = New-Object -comObject WScript.Shell; $Shortcut = $WshShell.CreateShortcut('%USERPROFILE%\Desktop\Snappy Driver Installer.lnk'); $Shortcut.TargetPath = '%ProgramFiles%\Snappy Driver Installer\SDI_x64_%SDI_VERSION%.exe'; $Shortcut.WorkingDirectory = '%ProgramFiles%\Snappy Driver Installer'; $Shortcut.Save()"
+powershell -Command "$WshShell = New-Object -comObject WScript.Shell; $Shortcut = $WshShell.CreateShortcut('%ProgramData%\Microsoft\Windows\Start Menu\Programs\Snappy Driver Installer.lnk'); $Shortcut.TargetPath = '%ProgramFiles%\Snappy Driver Installer\SDI_x64_%SDI_VERSION%.exe'; $Shortcut.WorkingDirectory = '%ProgramFiles%\Snappy Driver Installer'; $Shortcut.Save()"
+start /wait "" "%ProgramFiles%\Snappy Driver Installer\SDI_x64_%SDI_VERSION%.exe"
+cls
+echo Installation complete!
+timeout /t 2 >nul
+mode con: cols=128 lines=36
+goto drivers
+
+:driverpack
+cls
+echo [0m=====================================================================================================================
+echo [32mInstalling Driver Pack Solution...[0m
+echo =====================================================================================================================
+curl -L "https://dl.driverpack.io/17-online/DriverPack-17-Online.exe" -o "%USERPROFILE%\Downloads\DriverPack.exe"
+start /wait "" "%USERPROFILE%\Downloads\DriverPack.exe" /S
+cls
+echo Installation complete!
+timeout /t 2 >nul
+mode con: cols=128 lines=36
+goto drivers
 
 :end
 echo Done.
