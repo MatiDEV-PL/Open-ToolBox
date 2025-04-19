@@ -3,7 +3,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/matidev-pl/open-toolbox/badge)](https://www.codefactor.io/repository/github/matidev-pl/open-toolbox)  
 
 ## 📋 Overview:
-Open ToolBox is the program I utilize for my second project, Clean Windows. It comes with a few essential programs and settings.
+Open ToolBox is the program I plan to utilize for my second project, Clean Windows. It comes with a few essential programs and settings.
 
 ## ❗Supported platforms:
 - Windows 10  
