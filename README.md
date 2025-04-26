@@ -15,6 +15,7 @@ Open ToolBox is the utility I intend to use for my other project, [Clean Windows
 ## 🔍 Sources:
 - [Microsoft-Activation-Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts)
 - [ExplorerPatcher](https://github.com/valinet/ExplorerPatcher)
+- [windows-defender-remover](https://github.com/ionuttbara/windows-defender-remover)
 
 ## 🎁 If you like my work consider giving tip
 [<img src="https://liberapay.com/assets/widgets/donate.svg" width="100">](https://liberapay.com/MatiDEV-PL/donate) 
