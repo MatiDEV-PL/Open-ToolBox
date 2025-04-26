@@ -2502,7 +2502,9 @@ cls
 echo =====================================================================================================================
 echo [32mWindows Defender Remover[0m
 echo ---------------------------------------------------------------------------------------------------------------------
-echo [32m[1][0m ^| [31mYes (Remove Windows Defender)[0m
+echo [32m[1][0m ^| Yes [31m(Remove Windows Defender)[0m
+echo [32m[2][0m ^| Create a System Restore Point [31m(Highly recommended)[0m
+echo [32m[3][0m ^| Restore from Last System Restore Point
 echo =====================================================================================================================
 echo.
 echo [32m[0][0m ^| Back          
@@ -2510,6 +2512,8 @@ echo.
 timeout /t 1 >nul
 set /p op=Type option:
 if "%op%"=="1" goto defender1
+if "%op%"=="2" goto restorepoint
+if "%op%"=="3" goto restorefrompoint
 if "%op%"=="0" goto menu
 
 cls
@@ -2524,17 +2528,61 @@ powershell -Command "Set-MpPreference -DisableRealtimeMonitoring $true; Add-MpPr
 @echo off
 cls
 echo  =====================================================================================================================
-echo  [32mDownloading Windows Defender...[0m
+echo  [32mDownloading Windows Defender Remover...[0m
 echo  =====================================================================================================================
 timeout /t 1 >nul
 cd "%downloadDir%"
-curl -L -o "DefenderRemover.exe" "https://github.com/ionuttbara/windows-defender-remover/releases/download/release_def_12_8/DefenderRemover.exe"
+curl -L -o "Script_Run.bat" "https://raw.githubusercontent.com/ionuttbara/windows-defender-remover/refs/heads/main/Script_Run.bat"
 cls
-powershell -Command "Add-MpPreference -ExclusionPath '%downloadDir%\DefenderRemover.exe'" >nul 2>&1
-start /wait "" "%downloadDir%\DefenderRemover.exe" /S
-powershell -Command "Remove-MpPreference -ExclusionPath '%downloadDir%\DefenderRemover.exe'" >nul 2>&1
+powershell -Command "Add-MpPreference -ExclusionPath '%downloadDir%\Script_Run.bat'" >nul 2>&1
+"%downloadDir%\Script_Run.bat"
+powershell -Command "Remove-MpPreference -ExclusionPath '%downloadDir%\Script_Run.bat'" >nul 2>&1
 
 cls
+goto menu
+
+:restorepoint
+cls
+echo =====================================================================================================================
+echo [32mCreating a System Restore Point...[0m
+echo =====================================================================================================================
+powershell -Command "Checkpoint-Computer -Description 'Open-ToolBox Restore Point' -RestorePointType 'MODIFY_SETTINGS'"
+if %errorlevel% equ 0 (
+    echo [32mSystem Restore Point created successfully![0m
+) else (
+    echo [31mFailed to create System Restore Point.[0m
+    echo [33mYou must have System Protection enabled.[0m
+)
+timeout /t 4 >nul
+cls
+goto menu
+
+:restorefrompoint
+cls
+echo =====================================================================================================================
+echo [32mRestoring from the last System Restore Point...[0m
+echo ---------------------------------------------------------------------------------------------------------------------
+echo [31mWARNING: This will restart your computer and revert system changes![0m
+echo [33mPress Y to continue[0m
+echo =====================================================================================================================
+set /p confirm=Continue? (Y/N): 
+if "%confirm%"=="Y" goto restoreyes
+if "%confirm%"=="N" goto defender
+
+cls
+echo [31mInvalid option. Please enter Y or N.[0m
+timeout /t 2 >nul
+cls
+goto restorefrompoint
+
+:restoreyes
+powershell -Command "Restore-Computer -RestorePoint (Get-ComputerRestorePoint | Select-Object -Last 1).SequenceNumber -Confirm:$false; Restart-Computer"
+if %errorlevel% equ 0 (
+    echo [32mSystem restore initiated. Your computer will restart.[0m
+) else (
+    echo [31mFailed to start system restore. You must have System Protection enabled.[0m
+)
+timeout /t 6 >nul
 goto menu
 
 :compression
